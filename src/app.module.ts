@@ -5,6 +5,8 @@ import { SwaggerModule } from './swagger/swagger.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { TasksModule } from './schedule/schedule.module';
 import { TestCacheModule } from './cache/cache.module';
+import { SseModule } from './sse/sse.module';
+import { MiddleWareModule } from './middleware/middleware.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -22,6 +24,8 @@ import { TestCacheModule } from './cache/cache.module';
     DataQueryModule,
     SwaggerModule,
     TestCacheModule,
+    SseModule,
+    MiddleWareModule,
   ],
 })
 export class AppModule {}

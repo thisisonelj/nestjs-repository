@@ -1,10 +1,15 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { NestExpressApplication } from '@nestjs/platform-express';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+    forceCloseConnections: true,
+  });
   app.enableCors();
+  app.enableShutdownHooks();
+  app.set('query parser', 'extended');
   const options = new DocumentBuilder()
     .setTitle('接口api文档')
     .setDescription('The interface API description')
