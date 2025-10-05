@@ -11,6 +11,7 @@ import { OrdersModule } from './emitter/emitter.module';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { httpModule } from './http/http.module';
 import { ConfigModule } from '@nestjs/config';
+import { UploadModule } from './upload/upload.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -34,6 +35,7 @@ import { ConfigModule } from '@nestjs/config';
     SseModule,
     MiddleWareModule,
     httpModule,
+    UploadModule,
   ],
 })
 export class AppModule {}
